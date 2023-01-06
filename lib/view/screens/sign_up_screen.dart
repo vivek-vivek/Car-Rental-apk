@@ -184,12 +184,12 @@ class SignupScreen extends StatelessWidget {
                                 .signupFormKey
                                 .currentState!
                                 .validate()) {
-                              // SignUpApiServices().signUpApiServices(
-                              //     name: prvSign.nameController.text,
-                              //     mobile: prvSign.phoneNumberController.text,
-                              //     email: prvSign.emailAdressController.text,
-                              //     password: prvSign.passwordController.text,
-                              //     context: context);
+                              SignUpApiServices().signUpApiServices(
+                                  name: prvSign.nameController.text,
+                                  mobile: prvSign.phoneNumberController.text,
+                                  email: prvSign.emailAdressController.text,
+                                  password: prvSign.passwordController.text,
+                                  context: context);
                             }
                           },
                           child: Text(

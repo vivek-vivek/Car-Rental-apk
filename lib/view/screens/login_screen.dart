@@ -147,10 +147,10 @@ class LoginScreen extends StatelessWidget {
                                   .loginFormKey
                                   .currentState!
                                   .validate()) {
-                                // LoginApiServices().loginApiServices(
-                                //     context: context,
-                                //     password: prvLogin.passwordController.text,
-                                //     mobile: prvLogin.mobileController.text);
+                                LoginApiServices().loginApiServices(
+                                    context: context,
+                                    password: prvLogin.passwordController.text,
+                                    mobile: prvLogin.mobileController.text);
                               }
                             },
                             child: Text(

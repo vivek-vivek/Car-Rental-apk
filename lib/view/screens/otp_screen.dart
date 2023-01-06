@@ -86,10 +86,10 @@ class OTPScreen extends StatelessWidget {
                           onPressed: () {
                             if (formKeyForOtpVerification.currentState!
                                 .validate()) {
-                              // OtpApiServices().otpApiServices(
-                              //     mobile: mobile,
-                              //     otp: otpTextEditingController.text,
-                              //     context: context);
+                              OtpApiServices().otpApiServices(
+                                  mobile: mobile,
+                                  otp: otpTextEditingController.text,
+                                  context: context);
                             }
                             log(otpTextEditingController.text);
                           },
