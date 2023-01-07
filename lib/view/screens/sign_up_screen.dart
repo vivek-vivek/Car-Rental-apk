@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'package:rent_ro/colors.dart';
+import 'package:rent_ro/view/widgets/colors.dart';
 import 'package:rent_ro/controller/provider/signup_provider.dart';
 import 'package:rent_ro/controller/services/signup_api_services.dart';
-import 'package:rent_ro/model/signup_model.dart';
 import 'package:rent_ro/view/screens/login_screen.dart';
-import 'package:rent_ro/view/screens/otp_screen.dart';
 import 'package:rent_ro/view/widgets/decorations.dart';
 import 'package:rent_ro/view/widgets/containers.dart';
 import 'package:rent_ro/view/widgets/header_div.dart';

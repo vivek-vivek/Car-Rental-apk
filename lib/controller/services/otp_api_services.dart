@@ -1,10 +1,14 @@
+import 'dart:async';
 import 'dart:developer';
+import 'dart:io';
 
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:rent_ro/controller/services/api_urls.dart';
 import 'package:rent_ro/model/otp_model.dart';
+import 'package:rent_ro/view/screens/home_screen.dart';
 import 'package:rent_ro/view/screens/verification_screen.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class OtpApiServices {
   /// OtpApiServices
@@ -23,7 +27,6 @@ class OtpApiServices {
       Response response =
           await Dio().post(baseUrl + auth + otpVerify, data: otpModel.toJson());
 
-      log("------------------");
       log(response.statusCode.toString());
       if (response.statusCode == 202) {
         showDialog(
@@ -44,11 +47,46 @@ class OtpApiServices {
           },
         );
       } else {
-        Navigator.of(context).pushAndRemoveUntil(
-            MaterialPageRoute(
-              builder: (context) => VerificationScreen(),
+        final prefs = await SharedPreferences.getInstance();
+        prefs.setBool('isLoggedIn', true);
+        Navigator.of(context).pushReplacement(MaterialPageRoute(
+          builder: (context) => const HomeScreen(),
+        ));
+      } //Handling network connection error-------->
+
+    } on SocketException {
+      Navigator.of(context).pop();
+      showDialog(
+        context: context,
+        builder: (context) => const Center(
+            child: AlertDialog(
+          content: Text('No internet connection'),
+        )),
+      );
+
+      //Handling timeout error---------->
+
+    } on TimeoutException {
+      Navigator.of(context).pop();
+      showDialog(
+        context: context,
+        builder: (context) => const Center(
+          child: AlertDialog(
+            content: Text('No internet connection '),
+          ),
+        ),
+      );
+    } on DioError catch (e) {
+      if (e.response == null) {
+        Navigator.of(context).pop();
+        return showDialog(
+          context: context,
+          builder: (context) => const Center(
+            child: AlertDialog(
+              content: Text('No internet connection '),
             ),
-            (route) => false);
+          ),
+        );
       }
     } catch (error) {
       log(error.toString());

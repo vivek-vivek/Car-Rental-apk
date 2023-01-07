@@ -1,7 +1,7 @@
 import 'dart:developer';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'package:rent_ro/colors.dart';
+import 'package:rent_ro/view/widgets/colors.dart';
 import 'package:rent_ro/controller/services/api_urls.dart';
 import 'package:rent_ro/model/signup_model.dart';
 import 'package:rent_ro/view/screens/otp_screen.dart';

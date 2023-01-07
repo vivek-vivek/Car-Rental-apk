@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:rent_ro/colors.dart';
+import 'package:rent_ro/view/widgets/colors.dart';
 
 class HeaderDiv extends StatelessWidget {
   const HeaderDiv({

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'package:rent_ro/colors.dart';
+import 'package:rent_ro/view/widgets/colors.dart';
 import 'package:rent_ro/controller/provider/login_provider.dart';
 import 'package:rent_ro/controller/services/login_api_services.dart';
 import 'package:rent_ro/view/screens/otp_screen.dart';

@@ -3,7 +3,7 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:pinput/pinput.dart';
-import 'package:rent_ro/colors.dart';
+import 'package:rent_ro/view/widgets/colors.dart';
 import 'package:rent_ro/controller/services/otp_api_services.dart';
 import 'package:rent_ro/view/widgets/decorations.dart';
 import 'package:rent_ro/view/widgets/header_div.dart';

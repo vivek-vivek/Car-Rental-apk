@@ -1,36 +1,32 @@
-import 'dart:async';
+import 'dart:developer';
 
+import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:rent_ro/view/screens/home_screen.dart';
 import 'package:rent_ro/view/screens/sign_up_screen.dart';
 
-class SplashScreen extends StatefulWidget {
-  const SplashScreen({Key? key}) : super(key: key);
+// ignore: must_be_immutable
+class SplashScreen extends StatelessWidget {
+  bool isLoggedIn;
 
-  @override
-  SplashScreenState createState() => SplashScreenState();
-}
-
-class SplashScreenState extends State<SplashScreen> {
-  @override
-  void initState() {
-    super.initState();
-    Timer(
-        const Duration(seconds: 3),
-        () => Navigator.pushReplacement(
-            context, MaterialPageRoute(builder: (context) => SignupScreen())));
-  }
+  SplashScreen({
+    super.key,
+    required this.isLoggedIn,
+  });
 
   @override
   Widget build(BuildContext context) {
+    log(isLoggedIn.toString());
     final respHeight = MediaQuery.of(context).size.width;
-    return Scaffold(
-      body: Center(
-        child: Text(
-          'RENTRO',
-          style: GoogleFonts.abrilFatface(fontSize: respHeight * 0.2),
-        ),
+    return AnimatedSplashScreen(
+      duration: 3000,
+      splash: Text(
+        'RENTRO',
+        style: GoogleFonts.abrilFatface(fontSize: respHeight * 0.1),
       ),
+      nextScreen: isLoggedIn ? const HomeScreen() : const SignupScreen(),
+      splashTransition: SplashTransition.fadeTransition,
     );
   }
 }

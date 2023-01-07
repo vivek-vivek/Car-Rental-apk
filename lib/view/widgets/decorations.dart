@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:rent_ro/colors.dart';
+import 'package:rent_ro/view/widgets/colors.dart';
 
 BoxDecoration kBoxDecoration({double respHeight = 0, Color color = kWhite}) {
   return BoxDecoration(
