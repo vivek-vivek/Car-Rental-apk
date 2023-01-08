@@ -1,4 +1,4 @@
-# rent_ro
+# Rentro
 
 A new Flutter project.
 
